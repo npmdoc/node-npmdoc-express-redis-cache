@@ -1,1 +1,38 @@
-{     "devDependencies": {         "electron-lite": "kaizhu256/node-electron-lite#alpha",         "utility2": "kaizhu256/node-utility2#alpha"     },     "name":"npmdoc-express-redis-cache",     "homepage": "https://github.com/npmdoc/node-npmdoc-express-redis-cache",     "repository": {         "type": "git",         "url": "https://github.com/npmdoc/node-npmdoc-express-redis-cache.git"     },     "scripts": {         "build-ci": "utility2 shReadmeTest build_ci.sh"     },     "version": "0.0.1" }
+{
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "description": "#### api documentation for  [express-redis-cache (v0.5.1)](https://github.com/rv-kip/express-redis-cache#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-express-redis-cache.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-express-redis-cache) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-express-redis-cache.svg)](https://travis-ci.org/npmdoc/node-npmdoc-express-redis-cache)",
+    "devDependencies": {
+        "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "utility2": "kaizhu256/node-utility2#alpha"
+    },
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmdoc/node-npmdoc-express-redis-cache",
+    "keywords": [
+        "documentation",
+        "express-redis-cache"
+    ],
+    "license": "MIT",
+    "main": "lib.npmdoc_express_redis_cache.js",
+    "name": "npmdoc-express-redis-cache",
+    "nameAlias": "npmdoc_express_redis_cache",
+    "nameOriginal": "npmdoc-express-redis-cache",
+    "os": [
+        "darwin",
+        "linux"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/npmdoc/node-npmdoc-express-redis-cache.git"
+    },
+    "scripts": {
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "npm install \"kaizhu256/node-utility2#alpha\" && utility2 shDeployHeroku",
+        "postinstall": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh postinstall",
+        "start": "PORT=${PORT:-8080} utility2 start test.js",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
+    },
+    "version": "2017.4.24"
+}
