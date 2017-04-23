@@ -1,0 +1,954 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/rv-kip/express-redis-cache#readme">express-redis-cache (v0.5.1)</a>
+</h1>
+<h4>A module to make Express interact with Redis (create, get, delete). You can automatically cache all your most popular routes in Redis.</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.express-redis-cache">module express-redis-cache</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.express-redis-cache.express-redis-cache">
+            function <span class="apidocSignatureSpan"></span>express-redis-cache
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.express-redis-cache.ExpressRedisCache">
+            function <span class="apidocSignatureSpan">express-redis-cache.</span>ExpressRedisCache
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">express-redis-cache.</span>ExpressRedisCache.prototype</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.express-redis-cache.ExpressRedisCache">module express-redis-cache.ExpressRedisCache</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.express-redis-cache.ExpressRedisCache.ExpressRedisCache">
+            function <span class="apidocSignatureSpan">express-redis-cache.</span>ExpressRedisCache
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.express-redis-cache.ExpressRedisCache.init">
+            function <span class="apidocSignatureSpan">express-redis-cache.ExpressRedisCache.</span>init
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.express-redis-cache.ExpressRedisCache.super_">
+            function <span class="apidocSignatureSpan">express-redis-cache.ExpressRedisCache.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.express-redis-cache.ExpressRedisCache.prototype">module express-redis-cache.ExpressRedisCache.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.express-redis-cache.ExpressRedisCache.prototype.add">
+            function <span class="apidocSignatureSpan">express-redis-cache.ExpressRedisCache.prototype.</span>add
+            <span class="apidocSignatureSpan">(name, body, options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.express-redis-cache.ExpressRedisCache.prototype.del">
+            function <span class="apidocSignatureSpan">express-redis-cache.ExpressRedisCache.prototype.</span>del
+            <span class="apidocSignatureSpan">(name, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.express-redis-cache.ExpressRedisCache.prototype.get">
+            function <span class="apidocSignatureSpan">express-redis-cache.ExpressRedisCache.prototype.</span>get
+            <span class="apidocSignatureSpan">(name, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.express-redis-cache.ExpressRedisCache.prototype.route">
+            function <span class="apidocSignatureSpan">express-redis-cache.ExpressRedisCache.prototype.</span>route
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.express-redis-cache.ExpressRedisCache.prototype.size">
+            function <span class="apidocSignatureSpan">express-redis-cache.ExpressRedisCache.prototype.</span>size
+            <span class="apidocSignatureSpan">( callback // Callback )</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.express-redis-cache" id="apidoc.module.express-redis-cache">module express-redis-cache</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.express-redis-cache.express-redis-cache" id="apidoc.element.express-redis-cache.express-redis-cache">
+        function <span class="apidocSignatureSpan"></span>express-redis-cache
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">express-redis-cache = function (options) {
+  return new ExpressRedisCache(options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.express-redis-cache.ExpressRedisCache" id="apidoc.element.express-redis-cache.ExpressRedisCache">
+        function <span class="apidocSignatureSpan">express-redis-cache.</span>ExpressRedisCache
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ExpressRedisCache(options) {
+
+<span class="apidocCodeCommentSpan">  /** The request options
+   *
+   *  @type Object
+   */
+</span>
+  this.options = options || {};
+
+  /** The entry name prefix
+   *
+   *  @type String
+   */
+
+  this.prefix = this.options.prefix || config.prefix;
+
+  /** The host to connect to (default host if null)
+   *
+   *  @type String
+   */
+
+  this.host = this.options.host || "localhost";
+
+  /** The port to connect to (default port if null)
+   *
+   *  @type Number
+   */
+
+  this.port = this.options.port || "6379";
+
+  /** The password of Redis server (optional)
+   *
+   *  @type String
+   */
+   this.auth_pass = this.options.auth_pass;
+
+  /** An alias to disable expiration for a specific route
+   *
+   *  var cache = new ExpressRedisCache();
+   *  cache.route('page', cache.FOREVER); // cache will not expire
+   *
+   *  @type number
+   */
+
+  this.FOREVER = -1;
+
+  /** Set expiration time in seconds, default is -1 (No expire)
+   *  @type number
+   */
+
+  this.expire = this.options.expire || this.FOREVER;
+
+  /** Whether or not express-redis-cache is connected to Redis
+   *
+   *  @type Boolean
+   */
+
+  this.connected = false;
+
+  /** The Redis Client
+   *
+   *  @type Object (preferably a client from the official Redis module)
+   */
+
+  this.client = this.options.client || require('redis').createClient(this.port, this.host, { auth_pass: this.auth_pass });
+
+  /** If client can emit */
+
+  if ( this.client.on ) {
+    this.client.on('error', function (error) {
+      this.emit('error', error);
+    }.bind(this));
+
+    this.client.on('connect', function () {
+      this.connected = true;
+      this.emit('connected', { host: this.host, port: this.port });
+      this.emit('message', 'OK connected to redis://' + this.client.address);
+    }.bind(this));
+
+    this.client.on('end', function () {
+      this.connected = false;
+      this.emit('disconnected', { host: this.host, port: this.port });
+      this.emit('message', 'Disconnected from redis://' + this.client.host + ':' + this.client.port);
+    }.bind(this));
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.express-redis-cache.ExpressRedisCache" id="apidoc.module.express-redis-cache.ExpressRedisCache">module express-redis-cache.ExpressRedisCache</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.express-redis-cache.ExpressRedisCache.ExpressRedisCache" id="apidoc.element.express-redis-cache.ExpressRedisCache.ExpressRedisCache">
+        function <span class="apidocSignatureSpan">express-redis-cache.</span>ExpressRedisCache
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ExpressRedisCache(options) {
+
+<span class="apidocCodeCommentSpan">  /** The request options
+   *
+   *  @type Object
+   */
+</span>
+  this.options = options || {};
+
+  /** The entry name prefix
+   *
+   *  @type String
+   */
+
+  this.prefix = this.options.prefix || config.prefix;
+
+  /** The host to connect to (default host if null)
+   *
+   *  @type String
+   */
+
+  this.host = this.options.host || "localhost";
+
+  /** The port to connect to (default port if null)
+   *
+   *  @type Number
+   */
+
+  this.port = this.options.port || "6379";
+
+  /** The password of Redis server (optional)
+   *
+   *  @type String
+   */
+   this.auth_pass = this.options.auth_pass;
+
+  /** An alias to disable expiration for a specific route
+   *
+   *  var cache = new ExpressRedisCache();
+   *  cache.route('page', cache.FOREVER); // cache will not expire
+   *
+   *  @type number
+   */
+
+  this.FOREVER = -1;
+
+  /** Set expiration time in seconds, default is -1 (No expire)
+   *  @type number
+   */
+
+  this.expire = this.options.expire || this.FOREVER;
+
+  /** Whether or not express-redis-cache is connected to Redis
+   *
+   *  @type Boolean
+   */
+
+  this.connected = false;
+
+  /** The Redis Client
+   *
+   *  @type Object (preferably a client from the official Redis module)
+   */
+
+  this.client = this.options.client || require('redis').createClient(this.port, this.host, { auth_pass: this.auth_pass });
+
+  /** If client can emit */
+
+  if ( this.client.on ) {
+    this.client.on('error', function (error) {
+      this.emit('error', error);
+    }.bind(this));
+
+    this.client.on('connect', function () {
+      this.connected = true;
+      this.emit('connected', { host: this.host, port: this.port });
+      this.emit('message', 'OK connected to redis://' + this.client.address);
+    }.bind(this));
+
+    this.client.on('end', function () {
+      this.connected = false;
+      this.emit('disconnected', { host: this.host, port: this.port });
+      this.emit('message', 'Disconnected from redis://' + this.client.host + ':' + this.client.port);
+    }.bind(this));
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.express-redis-cache.ExpressRedisCache.init" id="apidoc.element.express-redis-cache.ExpressRedisCache.init">
+        function <span class="apidocSignatureSpan">express-redis-cache.ExpressRedisCache.</span>init
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">init = function (options) {
+  return new ExpressRedisCache(options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.express-redis-cache.ExpressRedisCache.super_" id="apidoc.element.express-redis-cache.ExpressRedisCache.super_">
+        function <span class="apidocSignatureSpan">express-redis-cache.ExpressRedisCache.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function EventEmitter() {
+  EventEmitter.init.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.express-redis-cache.ExpressRedisCache.prototype" id="apidoc.module.express-redis-cache.ExpressRedisCache.prototype">module express-redis-cache.ExpressRedisCache.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.express-redis-cache.ExpressRedisCache.prototype.add" id="apidoc.element.express-redis-cache.ExpressRedisCache.prototype.add">
+        function <span class="apidocSignatureSpan">express-redis-cache.ExpressRedisCache.prototype.</span>add
+        <span class="apidocSignatureSpan">(name, body, options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function add(name, body, options, callback) {
+  var self = this;
+
+<span class="apidocCodeCommentSpan">  /** Adjust arguments in case @options is omitted **/
+</span>  if ( ! callback &amp;&amp; (typeof options === 'function') ) {
+    callback = options;
+    options = {};
+  }
+
+  var domain = require('domain').create();
+
+  domain.on('error', domain.bind(function (error) {
+    self.emit('error', error);
+    self.connected = false;
+    callback(error);
+  }));
+
+  domain.run(function () {
+
+    if (self.connected === false) {
+      return callback(null, []); // simulate cache miss
+    }
+
+    /** The new cache entry **/
+    var entry = {
+      body: body,
+      type: options.type || config.type,
+      touched: +new Date(),
+      expire: (typeof options.expire !== 'undefined' &amp;&amp; options.expire !== false) ? options.expire : self.expire
+    };
+
+    var size = require('../sizeof')(entry);
+
+    var prefix = self.prefix.match(/:$/) ? self.prefix.replace(/:$/, '')
+      : self.prefix;
+
+    /* Save as a Redis hash */
+    var redisKey = prefix + ':' + name;
+    self.client.hmset(redisKey, entry,
+      domain.intercept(function (res) {
+        var calculated_size = (size / 1024).toFixed(2);
+        /** If @expire then tell Redis to expire **/
+        if ( typeof entry.expire === 'number' &amp;&amp; entry.expire &gt; 0 ) {
+          self.client.expire(redisKey, +entry.expire,
+            domain.intercept(function () {
+              self.emit('message', require('util').format('SET %s ~%d Kb %d TTL (sec)', redisKey, calculated_size, +entry.expire
+));
+              callback(null, name, entry, res);
+            }));
+        }
+        else
+        {
+          self.emit('message', require('util').format('SET %s ~%d Kb', redisKey, calculated_size));
+          callback(null, name, entry, res);
+        }
+      }));
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```js
+cache.get('user*', function (error, entries) {});
+```
+
+## `add` Add a new cache entry
+
+```js
+cache.<span class="apidocCodeKeywordSpan">add</span>(/** String */ name, /** String */ body, /** Object (optional) **/ options, /**
+Function( Error, Entry ) */ callback )
+```
+
+Where options is an object that can have the following properties:
+
+- **expire** `Number` (lifetime of entry in seconds)
+- **type** `String` (the content-type)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.express-redis-cache.ExpressRedisCache.prototype.del" id="apidoc.element.express-redis-cache.ExpressRedisCache.prototype.del">
+        function <span class="apidocSignatureSpan">express-redis-cache.ExpressRedisCache.prototype.</span>del
+        <span class="apidocSignatureSpan">(name, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function del(name, callback) {
+  var self = this;
+
+  if ( typeof name !== 'string' ) {
+    return this.emit('error', new Error('ExpressRedisCache.del: missing first argument String'));
+  }
+
+  if ( typeof callback !== 'function' ) {
+    return this.emit('error', new Error('ExpressRedisCache.del: missing second argument Function'));
+  }
+
+  var domain = require('domain').create();
+
+  domain.on('error', function onDelError (error) {
+    callback(error);
+  });
+
+  domain.run(function delRun () {
+
+<span class="apidocCodeCommentSpan">    /** Get prefix */
+</span>
+    var prefix = self.prefix.match(/:$/) ? self.prefix.replace(/:$/, '')
+      : self.prefix;
+
+    /** Tell Redis to delete hash */
+
+    var redisKey = prefix + ':' + name;
+
+    /** Detect wilcard syntax */
+
+    var hasWildcard = redisKey.indexOf('*') &gt;= 0;
+
+    /** If has wildcard */
+
+    if ( hasWildcard ) {
+
+      /** Get a list of keys using the wildcard */
+
+      self.client.keys(redisKey, domain.intercept(function onKeys (keys) {
+
+        require('async').each(keys,
+
+          function onEachKey (key, callback) {
+            self.client.del(key,  domain.intercept(function () {
+              self.emit('message', require('util').format('DEL %s', key));
+              callback();
+            }));
+          },
+
+          function onEachKeyDone (error) {
+
+            if ( error ) {
+              throw error;
+            }
+
+            callback(null, keys.length);
+
+          });
+
+      }));
+
+    }
+
+    /** No wildcard **/
+
+    else {
+      self.client.del(redisKey,
+        domain.intercept(function onKeyDeleted (deletions) {
+          self.emit('message', require('util').format('DEL %s', redisKey));
+          callback(null, +deletions);
+        }));
+    }
+
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+cache.add('user:info', JSON.stringify({ id: 1, email: 'john@doe.com' }), { expire: 60 * 60 * 24, type: '
+;json' },
+    function (error, added) {});
+```
+
+## `del` Delete a cache entry
+
+```js
+cache.<span class="apidocCodeKeywordSpan">del</span>(/** String */ name, /** Function ( Error, Number deletions ) */ callback);
+```
+
+You can use wildcard (*) in name.
+
+## `size` Get cache size for all entries
+
+```js
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.express-redis-cache.ExpressRedisCache.prototype.get" id="apidoc.element.express-redis-cache.ExpressRedisCache.prototype.get">
+        function <span class="apidocSignatureSpan">express-redis-cache.ExpressRedisCache.prototype.</span>get
+        <span class="apidocSignatureSpan">(name, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function get(name, callback) {
+  var self = this;
+
+  var domain = require('domain').create();
+
+  domain.on('error', function (error) {
+    self.emit('error', error);
+    callback(error);
+    domain.exit();
+  });
+
+  domain.run(function () {
+
+
+    if ( typeof name === 'function' ) {
+      callback = name;
+      name = '*';
+    }
+
+    var prefix = self.prefix.match(/:$/) ? self.prefix.replace(/:$/, '')
+      : self.prefix;
+
+    self.client.keys(prefix + ':' + name, domain.intercept(function (keys) {
+      if ( ! keys.length ) {
+        callback(null, []);
+        return domain.exit();
+      }
+
+      require('async').parallel(keys.map(function (key) {
+        return function (cb) {
+          self.client.hgetall(key, domain.intercept(function (result) {
+            var names = key.split(':');
+            result.name = names[1];
+            result.prefix = names[0];
+            self.emit('message', require('util').format('GET %s ~%d Kb', key,
+              (require('../sizeof')(result) / 1024).toFixed(2)));
+            cb(null, result);
+          }));
+        };
+      }), domain.intercept(function (results) {
+        callback(null, results);
+        domain.exit();
+      }));
+    }));
+
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Just use it as a middleware in the stack of the route you want to cache.
+
+```js
+var app = express();
+var cache = require('express-redis-cache')();
+
+// replace
+app.<span class="apidocCodeKeywordSpan">get</span>('/',
+  function (req, res)  { ... });
+
+// by
+app.get('/',
+  cache.route(),
+  function (req, res)  { ... });
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.express-redis-cache.ExpressRedisCache.prototype.route" id="apidoc.element.express-redis-cache.ExpressRedisCache.prototype.route">
+        function <span class="apidocSignatureSpan">express-redis-cache.ExpressRedisCache.prototype.</span>route
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function route() {
+
+<span class="apidocCodeCommentSpan">  /** The middleware to return
+   *
+   *  @type Function
+   */
+</span>
+  var middleware;
+
+  /** A reference to this
+   *
+   *  @type ExpressRedisCache
+   */
+
+  var self = this;
+
+  /** The route options
+   *
+   *  @type List
+   */
+
+  var options = arguments;
+
+  /** The domain handler
+   *
+   *  @type Domain
+   */
+
+  var domain = require('domain').create();
+
+  /** The domain error handler
+   *
+   *  @type Domain
+   */
+
+  domain.on('error', function (error) {
+    self.emit('error', error);
+  });
+
+  domain.run(function () {
+    // Build the middleware function
+
+    /**
+     *  @function
+     *  @arg {IncomingMessage} req
+     *  @arg {HttpResponse} res
+     *  @arg {Function} next
+     */
+
+    middleware = function expressRedisCache_Middleware (req, res, next) {
+
+      if ( res.expressRedisCache ) {
+        self.emit('deprecated', {
+          deprecated: 'expressRedisCache',
+          substitute: 'use_express_redis_cache',
+          file: __fileName,
+          line: __line
+        });
+
+        res.use_express_redis_cache = res.expressRedisCache;
+
+      }
+
+      // If cache is disabled, call next()
+      if ( res.use_express_redis_cache === false ) {
+        return next();
+      }
+
+      // If the cache isn't connected, call next()
+
+      if ( self.connected === false || self.client.connected === false ) {
+        return next();
+      }
+
+      // If the cache gets disconnected, call next()
+      /* NOTE: The disconnected event is emitted after any redis client completes it's configured max_attempts and delay throttling
+.
+
+      This will throw a nasty error regarding headers when this occurs along the lines of:
+          Error: Can't set headers after they are sent.
+            at ServerResponse.OutgoingMessage.setHeader...
+
+         ...but it will allow the request to be completed without blocking.  Subsequent requests pass through as self.connected
+is false.
+      */
+      self.on('disconnected', function () {
+        return next();
+      });
+
+      /** Cache entry name
+       *
+       *  @type String
+       *  @description The name the cache entry will be saved under
+       *  @default req.originalUrl
+       */
+
+      var name = req.originalUrl;
+
+      /**
+       *  @deprecated `res.expressRedisCacheName` is deprecated starting on v0.1.1, `use res.express_redis_cache_name` instead
+       */
+
+      if ( res.expressRedisCacheName ) {
+        self.emit('deprecated', {
+          deprecated: 'expressRedisCacheName',
+          substitute: 'express_redis_cache_name',
+          file: __fileName,
+          line: __line
+        });
+
+        res.express_redis_cache_name = res.expressRedisCacheName;
+      }
+
+      // If a cache has been explicitly attached to `res` then use it as name
+
+      if ( res.express_redis_cache_name ) {
+        name = res.express_redis_cache_name;
+      }
+
+      // If route() was called with a string as its first argument, use this string as name
+
+      if ( typeof options[0] === 'string' ) {
+        name = options[0];
+      }
+
+      if ( typeof options[0] === 'object' &amp;&amp; typeof options[0].name === 'string' ) {
+        name = options[0].name;
+      }
+
+      /** Name cannot have wildcards in them */
+
+      if ( /\*/.test(name) ) {
+        return next(new Error('Name can not have wildcards'));
+      }
+
+      /** The seconds entry lives
+       *
+       *  @type Number
+       *  @default this.expire
+       */
+      var expire = self.expire;
+      if ( typeof options[0] === 'object' ) {
+        if ( typeof options[0].expire === 'number' || typeof options[0].expire === 'object' || typeof options[0].expire === 'function
+') {
+          expire = options[0].expire;
+        }
+      }
+
+      if ( typeof options[0] === 'number' ) {
+        expire = options[0];
+      }
+      else if ( typeof options[1] === 'number' || typeof options[1] === 'object') {
+        expire = options[1];
+      }
+
+      var binary = false;
+      if ( typeof options[0] === 'object' &amp;&amp; typeof options[0].binary === 'boolean' ) {
+        binary = options[0].binary;
+      }
+
+      var expirationPolicy = require('./expire')(expire); ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+// replace
+app.get('/',
+  function (req, res)  { ... });
+
+// by
+app.get('/',
+  cache.<span class="apidocCodeKeywordSpan">route</span>(),
+  function (req, res)  { ... });
+```
+
+This will check if there is a cache entry for this route. If not. it will cache it and serve the cache next time route is called
+.
+
+# Redis connection info
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.express-redis-cache.ExpressRedisCache.prototype.size" id="apidoc.element.express-redis-cache.ExpressRedisCache.prototype.size">
+        function <span class="apidocSignatureSpan">express-redis-cache.ExpressRedisCache.prototype.</span>size
+        <span class="apidocSignatureSpan">( callback // Callback )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">size = function ( callback // Callback ) {
+
+<span class="apidocCodeCommentSpan">  /** set in /index.js **/
+</span>  var self = this;
+
+  var domain = require('domain').create();
+
+  domain.on('error', function (error) {
+    callback(error);
+  });
+
+  domain.run(function () {
+
+    /** Tell Redis to fetch the keys name beginning by prefix **/
+    self.client.keys(self.prefix + '*', domain.intercept(function (keys) {
+
+      var size = 0;
+
+      require('async').parallel(
+
+        /** for each keys **/
+
+        keys.map(function (key) {
+          return function (cb) {
+
+            self.get(this.key.replace(new RegExp('^' + self.prefix), ''), cb);
+
+          }
+            .bind({ key: key });
+        }),
+
+        domain.intercept(function (results) {
+          results.forEach(function (result) {
+            size += require('../sizeof')(result);
+          });
+
+          callback(null, size);
+        }));
+
+    }));
+
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+You can use wildcard (*) in name.
+
+## `size` Get cache size for all entries
+
+```js
+cache.<span class="apidocCodeKeywordSpan">size</span>(/** Function ( Error, Number bytes ) */);
+```
+
+# Command line
+
+We ship with a CLI. You can invoke it like this: `express-redis-cache`
+
+## View cache entries
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
